@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Virtual Environment
+venv/
+.env/
+.env.*     # in case you use .env.development or .env.local
+
+# Bytecode
+*.pyc
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Testing
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# FastAPI / Uvicorn specific
+instance/
+*.db
+*.sqlite3
+
+# Static files / temp files
+staticfiles/
+tmp/
+temp/
+
+# Docker
+*.pid
+docker-compose.override.yml
+**/__pycache__/
+*.bak
+
+# Pydantic generated files
+*.schema.json
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# System files
+Thumbs.db
+ehthumbs.db
+
+# Build
+build/
+dist/
+*.egg-info/
+.eggs/

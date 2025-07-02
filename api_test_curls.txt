@@ -1,0 +1,56 @@
+# 1. Start a New Chat Session
+curl -X POST "http://localhost:4000/api/start_chat" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Alice",
+    "email": "alice@example.com",
+    "language": "en",
+    "age_range": "22-25"
+  }'
+
+# 2. Chat with the Bot (Text Input, Text Output)
+curl -X POST "http://localhost:4000/api/chat/<session_id>" \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello, how are you?"}'
+
+# 3. Chat with the Bot (Text Input, Audio Output)
+curl -X POST "http://localhost:4000/api/chat/<session_id>?format=audio" \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Tell me a joke."}' \
+  --output response.mp3
+
+# 4. Chat with the Bot (Audio Input, Text Output)
+curl -X POST "http://localhost:4000/api/chat/<session_id>" \
+  -F "audio=@/path/to/your/audio.wav"
+
+# 5. Chat with the Bot (Audio Input, Audio Output)
+curl -X POST "http://localhost:4000/api/chat/<session_id>?format=audio" \
+  -F "audio=@/path/to/your/audio.wav" \
+  --output response.mp3
+
+# 6. Translate Text (Text Input, Text Output)
+curl -X POST "http://localhost:4000/api/translator/" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Hello, world!", "target_lang": "ar"}'
+
+# 7. Translate Text (Text Input, Audio Output)
+curl -X POST "http://localhost:4000/api/translator/?format=audio" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "How are you?", "target_lang": "ar"}' \
+  --output translated.mp3
+
+# 8. Translate Audio (Audio Input, Text Output)
+curl -X POST "http://localhost:4000/api/translator/" \
+  -F "audio=@/path/to/your/audio.wav" \
+  -F "target_lang=ar"
+
+# 9. Translate Audio (Audio Input, Audio Output)
+curl -X POST "http://localhost:4000/api/translator/?format=audio" \
+  -F "audio=@/path/to/your/audio.wav" \
+  -F "target_lang=ar" \
+  --output translated.mp3
+
+# 10. Classify a Link (URL Safety Check)
+curl -X POST "http://localhost:4000/api/link_classifier/" \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://www.google.com"}' 

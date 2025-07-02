@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
 
-class GeminiLangChainClient:
+class LamaLangChainClient:
     def __init__(self, model_name="llama3.1:8b", temperature=0.7):
 
 

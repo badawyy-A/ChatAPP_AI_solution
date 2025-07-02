@@ -1,13 +1,13 @@
 # This service will handle chat logic: LLM, TTS, chat history, etc.
 
-from model import GeminiLangChainClient
+from model import LamaLangChainClient
 from services.session_service import add_chat_history, get_chat_history
 from utils.audio import speech_to_text, text_to_speech
 from fastapi import UploadFile
 import json
 import logging
 
-gemini = GeminiLangChainClient()
+gemini = LamaLangChainClient()
 
 def process_chat(session, user_message, input_type, db, response_format="text", audio_file: UploadFile = None, user_language="en-US"):
     base_user_language = user_language.split('-')[0]

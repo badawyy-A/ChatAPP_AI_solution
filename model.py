@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
 
+
 class LamaLangChainClient:
     def __init__(self, model_name="llama3.1:8b", temperature=0.7):
 
@@ -12,7 +13,7 @@ class LamaLangChainClient:
         self.temperature = temperature
 
     def _init_model(self):
-        """Initialize a LangChain Gemini chat model with the given API key."""
+        """Initialize a LangChain llama chat model with the given API key."""
         return ChatOllama(
             model=self.model_name,
             temperature=self.temperature,
@@ -21,7 +22,7 @@ class LamaLangChainClient:
 
     def get_report(self, input_prompt, max_retries=3):
         """
-        Attempts to generate a report using Gemini via LangChain,
+        Attempts to generate a report using llama via LangChain,
         rotating across API keys if needed.
 
         Args:

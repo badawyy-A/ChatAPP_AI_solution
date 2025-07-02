@@ -7,7 +7,7 @@ from fastapi import UploadFile
 import json
 import logging
 
-gemini = LamaLangChainClient()
+llama = LamaLangChainClient()
 
 def process_chat(session, user_message, input_type, db, response_format="text", audio_file: UploadFile = None, user_language="en-US"):
     base_user_language = user_language.split('-')[0]
@@ -38,8 +38,8 @@ def process_chat(session, user_message, input_type, db, response_format="text", 
 
     **Your Response (in {user_language}):**
     """
-    logging.info(f"Generating Gemini report for session {session.id}")
-    response_text = gemini.get_report(prompt)
+    logging.info(f"Generating llama report for session {session.id}")
+    response_text = llama.get_report(prompt)
     if not response_text or response_text.startswith("Error:"):
         return None, "Failed to get response from language model.", None
     add_chat_history(db, session.id, user_message, response_text)

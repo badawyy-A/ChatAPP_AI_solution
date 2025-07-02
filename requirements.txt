@@ -19,3 +19,4 @@ elevenlabs
 langchain_ollama
 standard-aifc
 python-multipar
+langchain-openai

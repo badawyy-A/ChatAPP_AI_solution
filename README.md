@@ -1,7 +1,7 @@
 ## setup 
 
 ```bash
-git clone <your_repo_url>
+git clone https://github.com/badawyy-A/ChatAPP_AI_solution.git
 cd ChatAPP_AI_solution
 ```
 
